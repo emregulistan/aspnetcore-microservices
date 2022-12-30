@@ -1,4 +1,6 @@
 using Discount.API.Repositories;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Discount.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,5 +23,5 @@ if (app.Environment.IsDevelopment())
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MigrateDatabase<Program>();
 app.Run();
