@@ -26,17 +26,24 @@ services:
     image: ${DOCKER_REGISTRY-}basketapi
     build:
       context: ..
-      dockerfile: Services/Basket/Basket.API/Dockerfile
+      dockerfile: /src/Services/Basket/Basket.API/Dockerfile
 
   discount.api:
     image: ${DOCKER_REGISTRY-}discountapi
     build:
       context: ..
-      dockerfile: src/Services/Discount/Discount.API/Dockerfile
+      dockerfile: /src/Services/Discount/Discount.API/Dockerfile
+
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: ..
+      dockerfile: /src/Services/Discount/Discount.Grpc/Dockerfile
 
 volumes:
   mongo_data:
   portainer_data:
   postgres_data:
   pgadmin_data:
+
 
