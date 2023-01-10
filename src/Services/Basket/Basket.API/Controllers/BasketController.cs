@@ -77,7 +77,7 @@ namespace Basket.API.Controllers
             // send checkout event to rabbitmq
             var eventMessage = _mapper.Map<BasketCheckoutEvent>(basketCheckout);
             eventMessage.TotalPrice = basket.TotalPrice;
-            await _publishEndpoint.Publish(eventMessage);
+            await _publishEndpoint.Publish<BasketCheckoutEvent>(eventMessage);
 
             // remove the basket
             await _repository.DeleteBasket(basket.UserName);

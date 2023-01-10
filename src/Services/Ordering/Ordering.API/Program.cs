@@ -37,14 +37,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-/*app.MigrateDatabase<OrderContext>((context, service) =>
+app.MigrateDatabase<OrderContext>((context, service) =>
         {
             var logger = app.Services.GetService<ILogger<OrderContextSeed>>();
                 OrderContextSeed
                     .SeedAsync(context, logger)
                     .Wait();
         });
-*/
+
 app.UseAuthorization();
 
 app.MapControllers();
