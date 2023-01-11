@@ -1,12 +1,19 @@
-﻿namespace AspnetRunBasics.Services
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System;
+using AspnetRunBasics.Models;
+using AspnetRunBasics.Extensions;
+
+namespace AspnetRunBasics.Services
 {
     public class CatalogService : ICatalogService
     {
         private readonly HttpClient _client;
 
-        public CatalogService(HttpClient client, ILogger<CatalogService> logger)
+        public CatalogService(HttpClient client)
         {
-            _client = client ?? throw new ArgumentNullException(nameof(client));
+            _client = client;
         }
 
         public async Task<IEnumerable<CatalogModel>> GetCatalog()

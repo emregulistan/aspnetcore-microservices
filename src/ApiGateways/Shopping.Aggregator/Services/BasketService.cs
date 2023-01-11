@@ -9,7 +9,7 @@ namespace Shopping.Aggregator.Services
 
         public BasketService(HttpClient client)
         {
-            _client = client ?? throw new ArgumentNullException(nameof(client));
+            _client = client;
         }
 
         public async Task<BasketModel> GetBasket(string userName)
